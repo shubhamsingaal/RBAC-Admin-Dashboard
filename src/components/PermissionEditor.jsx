@@ -39,14 +39,16 @@ const PermissionEditor = () => {
   const allPermissions = ['Read', 'Write', 'Delete', 'Execute'];
 
   return (
-    <div className="p-6 bg-gradient-to-r from-gray-100 to-gray-300 min-h-screen flex flex-col items-center font-[Helvetica,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto]">
-      <h2 className="text-3xl font-bold text-gray-800 mb-6 animate-fadeIn">Permission Editor</h2>
+    <div className="p-4 md:p-6 bg-gradient-to-r from-gray-100 to-gray-300 min-h-screen flex flex-col items-center font-[Helvetica,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto]">
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 animate-fadeIn">
+        Permission Editor
+      </h2>
 
       {/* Role Selector */}
-      <div className="bg-white shadow-lg rounded-lg p-6 mb-10 w-full max-w-xl animate-slideDown">
-        <h3 className="text-xl font-semibold mb-4 text-gray-700">Select Role</h3>
+      <div className="bg-white shadow-lg rounded-lg p-4 md:p-6 mb-8 w-full max-w-xl animate-slideDown">
+        <h3 className="text-lg md:text-xl font-semibold mb-4 text-gray-700">Select Role</h3>
         <select
-          className="border border-gray-300 rounded-lg p-3 w-full shadow-sm focus:ring focus:ring-indigo-300"
+          className="border border-gray-300 rounded-lg p-2 md:p-3 w-full shadow-sm focus:ring focus:ring-indigo-300"
           value={selectedRoleId || ''}
           onChange={(e) => handleRoleChange(e.target.value)}
         >
@@ -61,32 +63,34 @@ const PermissionEditor = () => {
 
       {/* Success Message */}
       {successMessage && (
-        <div className="mb-6 p-3 bg-green-100 text-green-800 rounded-lg shadow-md w-full max-w-xl animate-fadeIn">
+        <div className="mb-6 p-2 md:p-3 bg-green-100 text-green-800 rounded-lg shadow-md w-full max-w-xl animate-fadeIn">
           {successMessage}
         </div>
       )}
 
       {/* Permissions Section */}
       {selectedRole && (
-        <div className="w-full max-w-xl bg-white shadow-lg rounded-lg p-6 animate-slideDown">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+        <div className="w-full max-w-xl bg-white shadow-lg rounded-lg p-4 md:p-6 animate-slideDown">
+          <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4">
             Permissions for {selectedRole.name}
           </h3>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {allPermissions.map((permission) => (
               <label key={permission} className="flex items-center space-x-3">
                 <input
                   type="checkbox"
                   checked={permissions.includes(permission)}
                   onChange={() => togglePermission(permission)}
-                  className="form-checkbox h-5 w-5 rounded focus:ring focus:ring-indigo-300"
+                  className="form-checkbox h-4 w-4 md:h-5 md:w-5 rounded focus:ring focus:ring-indigo-300"
                 />
-                <span className="text-gray-700">{permission}</span>
+                <span className="text-gray-700 text-sm md:text-base">
+                  {permission}
+                </span>
               </label>
             ))}
           </div>
           <button
-            className="mt-6 bg-indigo-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-indigo-600 hover:shadow-lg transition-transform transform hover:-translate-y-1"
+            className="mt-6 bg-indigo-500 text-white py-2 px-4 md:py-3 md:px-6 rounded-lg shadow-md hover:bg-indigo-600 hover:shadow-lg transition-transform transform hover:-translate-y-1"
             onClick={savePermissions}
           >
             Save Permissions

@@ -62,22 +62,24 @@ const RoleManagement = () => {
   };
 
   return (
-    <div className="p-6 bg-gradient-to-r from-gray-100 to-gray-300 min-h-screen flex flex-col items-center font-[Helvetica,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto]">
-      <h2 className="text-3xl font-bold text-gray-800 mb-6 animate-fadeIn">Role Management</h2>
+    <div className="p-4 md:p-6 bg-gradient-to-r from-gray-100 to-gray-300 min-h-screen flex flex-col items-center font-[Helvetica,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto]">
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 animate-fadeIn">
+        Role Management
+      </h2>
 
       {/* Add Role Form */}
-      <div className="bg-white shadow-lg rounded-lg p-6 mb-10 w-full max-w-xl animate-slideDown">
-        <h3 className="text-xl font-semibold mb-4 text-gray-700">Add New Role</h3>
+      <div className="bg-white shadow-lg rounded-lg p-4 md:p-6 mb-8 w-full max-w-xl animate-slideDown">
+        <h3 className="text-lg md:text-xl font-semibold mb-4 text-gray-700">Add New Role</h3>
         <div className="grid gap-4">
           <input
             type="text"
             placeholder="Role Name"
-            className="border border-gray-300 rounded-lg p-3 shadow-sm focus:ring focus:ring-indigo-300"
+            className="border border-gray-300 rounded-lg p-2 md:p-3 shadow-sm focus:ring focus:ring-indigo-300"
             value={newRole.name}
             onChange={(e) => setNewRole({ ...newRole, name: e.target.value })}
           />
           <button
-            className="bg-indigo-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-indigo-600 hover:shadow-lg transition-transform transform hover:-translate-y-1"
+            className="bg-indigo-500 text-white py-2 px-4 md:py-3 md:px-6 rounded-lg shadow-md hover:bg-indigo-600 hover:shadow-lg transition-transform transform hover:-translate-y-1"
             onClick={handleAddRole}
             disabled={isLoading}
           >
@@ -85,7 +87,7 @@ const RoleManagement = () => {
           </button>
           {/* Success Message */}
           {successMessage && (
-            <div className="mt-4 bg-green-100 text-green-800 p-3 rounded-lg shadow-md animate-fadeIn">
+            <div className="mt-4 bg-green-100 text-green-800 p-2 md:p-3 rounded-lg shadow-md animate-fadeIn">
               {successMessage}
             </div>
           )}
@@ -93,13 +95,13 @@ const RoleManagement = () => {
       </div>
 
       {/* Roles Table */}
-      <div className="w-full max-w-4xl bg-white shadow-xl rounded-lg p-6 animate-fadeIn">
-        <table className="w-full border-collapse text-left">
+      <div className="w-full max-w-4xl bg-white shadow-xl rounded-lg p-4 md:p-6 animate-fadeIn overflow-x-auto">
+        <table className="w-full border-collapse text-left min-w-[600px]">
           <thead className="bg-gray-200 text-gray-800">
             <tr>
-              <th className="border-b border-gray-300 p-3">Role Name</th>
-              <th className="border-b border-gray-300 p-3">Permissions</th>
-              <th className="border-b border-gray-300 p-3">Actions</th>
+              <th className="border-b border-gray-300 p-2 md:p-3">Role Name</th>
+              <th className="border-b border-gray-300 p-2 md:p-3">Permissions</th>
+              <th className="border-b border-gray-300 p-2 md:p-3">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -110,18 +112,18 @@ const RoleManagement = () => {
                   index % 2 === 0 ? 'bg-gray-100' : ''
                 }`}
               >
-                <td className="border-b border-gray-300 p-3">{role.name}</td>
-                <td className="border-b border-gray-300 p-3">{role.permissions.join(', ')}</td>
-                <td className="border-b border-gray-300 p-3 flex space-x-4">
+                <td className="border-b border-gray-300 p-2 md:p-3">{role.name}</td>
+                <td className="border-b border-gray-300 p-2 md:p-3">{role.permissions.join(', ')}</td>
+                <td className="border-b border-gray-300 p-2 md:p-3 flex space-x-2 md:space-x-4">
                   <button
-                    className="text-indigo-500 hover:text-indigo-700 transition-transform transform hover:scale-110"
+                    className="text-indigo-500 hover:text-indigo-700 transition-transform transform hover:scale-110 text-sm md:text-base"
                     onClick={() => handleEditPermissions(role)}
                     title="Edit Permissions"
                   >
                     Edit
                   </button>
                   <button
-                    className="text-red-500 hover:text-red-700 transition-transform transform hover:scale-110"
+                    className="text-red-500 hover:text-red-700 transition-transform transform hover:scale-110 text-sm md:text-base"
                     onClick={() => deleteRole(role.id)}
                     title="Delete Role"
                   >
@@ -136,11 +138,11 @@ const RoleManagement = () => {
 
       {/* Edit Permissions Modal */}
       {editingRole && (
-        <div className="mt-6 bg-gray-100 rounded-lg shadow-lg p-6 animate-slideDown">
-          <h3 className="text-xl font-semibold text-gray-800">
+        <div className="mt-6 bg-gray-100 rounded-lg shadow-lg p-4 md:p-6 animate-slideDown">
+          <h3 className="text-lg md:text-xl font-semibold text-gray-800">
             Edit Permissions for {editingRole.name}
           </h3>
-          <div className="grid grid-cols-2 gap-4 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             {allPermissions.map((permission) => (
               <label key={permission} className="flex items-center space-x-2">
                 <input
@@ -149,12 +151,12 @@ const RoleManagement = () => {
                   onChange={() => togglePermission(permission)}
                   className="form-checkbox rounded focus:ring focus:ring-indigo-300"
                 />
-                <span className="text-gray-700">{permission}</span>
+                <span className="text-gray-700 text-sm md:text-base">{permission}</span>
               </label>
             ))}
           </div>
           <button
-            className="mt-4 bg-green-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-green-600 hover:shadow-lg transition-transform transform hover:-translate-y-1"
+            className="mt-4 bg-green-500 text-white py-2 px-4 md:py-3 md:px-6 rounded-lg shadow-md hover:bg-green-600 hover:shadow-lg transition-transform transform hover:-translate-y-1"
             onClick={savePermissions}
           >
             Save Permissions
