@@ -161,16 +161,16 @@ Contributions are welcome! Please fork the repository and create a pull request 
 ## **Screenshots**
 
 ### **Dashboard Overview**
-![alt text](image-3.png)
+![alt text](Dashboard_Overview.png)
 
 ### **User Management**
-![alt text](image-4.png)
+![alt text](User_Management.png)
 
 ### **Role Management**
-![alt text](image-1.png)
+![alt text](Role_Management.png)
 
 ### **Permission Editor**
-![alt text](image-2.png)
+![alt text](Permission_Editor.png)
 
 ---
 
