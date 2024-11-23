@@ -1,6 +1,3 @@
-Here’s an updated and more detailed README for your RBAC Admin Dashboard project:
-
----
 
 # **RBAC Admin Dashboard**
 
@@ -164,16 +161,16 @@ Contributions are welcome! Please fork the repository and create a pull request 
 ## **Screenshots**
 
 ### **Dashboard Overview**
-![Dashboard Overview](![alt text](image-3.png))
+(![alt text](image-3.png))
 
 ### **User Management**
-![User Management](![alt text](image.png))
+(![alt text](![alt text](image-4.png)))
 
 ### **Role Management**
-![Role Management](![alt text](image-1.png))
+(![alt text](image-1.png))
 
 ### **Permission Editor**
-![Permission Editor](![alt text](image-2.png))
+(![alt text](image-2.png))
 
 ---
 
